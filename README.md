@@ -1,10 +1,10 @@
 # Util Application Logging
 
-### Purpose
+## Purpose
 * Helper Utiltiy for Standardized Application Logging through Serilog
 
 
-### Usage
+## Usage
 
 * Install NuGet Package in an application
 * Set LogLevel and Log Output Type (Console, FileLog, ElsaticLog) in appsettings.json as shown below
@@ -39,8 +39,28 @@
   }
 ```
 
+```c
+_logger.LogInformationExtension($"Get Product By Id: {id}");
+```
 
-### Output
+## Extension Methods
+
+* LogTraceExtension
+* LogDebugExtension
+* LogInformationExtension
+* LogWarningExtension
+* LogErrorExtension
+* LogCriticalExtension
+* LogRoutePerformance
+* LogUnauthorizedAccess
+
+** Note: We have implemented extension methods to improve performance in logging as per Microfot's Guideline.
+
+* High-performance logging with LoggerMessage in ASP.NET Core - https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/loggermessage
+* LoggingHelpers Performance Measurement - https://www.stevejgordon.co.uk/high-performance-logging-in-net-core
+
+
+## Output
 
 * Information Log
 
@@ -156,7 +176,6 @@
    "Message":"Unauthorized Access - Authentication - Token is NULL",
    "EventType":"Authentication",
    "Description":"Token is NULL",
-
    "ActionName":"Demo.Api.Controllers.ProductController.GetById (Demo.Api)",
    "RequestPath":"/api/v1.0/products/1",
    "ApplicationName":"Demo.Api",
