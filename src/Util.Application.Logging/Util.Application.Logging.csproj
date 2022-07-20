@@ -4,7 +4,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<ProjectUrl></ProjectUrl>
 	<RepositoryUrl>https://github.com/contactvpatel/util-application-logging.git</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
 	<Description>Helper Utility for Application Logging</Description>
 	<Company>BAPS</Company>
   </PropertyGroup>
