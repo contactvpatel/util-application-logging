@@ -1,6 +1,6 @@
-﻿using System.Net;
+﻿using Microsoft.Extensions.Logging;
+using System.Net;
 using System.Net.Sockets;
-using Microsoft.Extensions.Logging;
 
 namespace Util.Application.Logging
 {
@@ -24,8 +24,7 @@ namespace Util.Application.Logging
 
                 return response;
             }
-            catch (HttpRequestException ex) when (ex.InnerException is SocketException se &&
-                                                  se.SocketErrorCode == SocketError.ConnectionRefused)
+            catch (HttpRequestException ex) when (ex.InnerException is SocketException { SocketErrorCode: SocketError.ConnectionRefused })
             {
                 if (request.RequestUri is null)
                     return new HttpResponseMessage(HttpStatusCode.BadGateway)

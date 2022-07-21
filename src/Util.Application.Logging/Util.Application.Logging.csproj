@@ -1,10 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	<ProjectUrl></ProjectUrl>
+	<TargetFramework>net6.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+	<id>Util.Application.Logging</id>
+	<title>Util.Application.Logging</title>
+	<description>Helper Utiltiy for Standardized Application Logging through Serilog</description>
+	<authors>BAPS IT Team</authors>
+	<owners>BAPS IT Team</owners>
+	<projectUrl>>https://github.com/contactvpatel/util-application-logging</projectUrl>
 	<RepositoryUrl>https://github.com/contactvpatel/util-application-logging.git</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 	<Description>Helper Utility for Application Logging</Description>

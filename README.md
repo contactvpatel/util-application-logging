@@ -1,13 +1,12 @@
 # Util Application Logging
 
 ## Purpose
-* Helper Utiltiy for Standardized Application Logging through Serilog
-
+* Helper Utility for Standardized Application Logging through Serilog
 
 ## Usage
 
 * Install NuGet Package in an application
-* Set LogLevel and Log Output Type (Console, FileLog, ElsaticLog) in appsettings.json as shown below
+* Set LogLevel and Log Output Type (Console, FileLog, ElasticLog) in appsettings.json as shown below
   * ConsoleLog -> Enabled (set log output as console). For Cloud Applications, it should be true, so all logs can be scrapped/read through prometheus and push to Grafana
    * FileLog -> Enabled (set log output as file). For IIS hosted applications, it should be true, so all logs can be created at logs\File folder (performance-demo-api-development-20220629, usage-demo-api-development-20220629)
    * ElasticLog -> Enabled (set log output to Elastic). This can be used to directly output logs to Elastic by providing valid Url.
@@ -33,9 +32,8 @@
     }
   },
   "AppSettings": {
-    "ApplicationName": "asm-api",
-    "ApplicationVersion": "1.0.0",
-    "EnablePerformanceFilterLogging": true
+    "ApplicationName": "demo-api", // Reflected in a log as ApplicationName property
+    "ApplicationVersion": "1.0.0" // Reflected in a log as ApplicationVersion property
   }
 ```
 
@@ -54,7 +52,7 @@ _logger.LogInformationExtension($"Get Product By Id: {id}");
 * LogRoutePerformance
 * LogUnauthorizedAccess
 
-** Note: We have implemented extension methods to improve performance in logging as per Microfot's Guideline.
+** Note: We have implemented extension methods to improve performance in logging as per Microsoft's Guideline.
 
 * High-performance logging with LoggerMessage in ASP.NET Core - https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/loggermessage
 * LoggingHelpers Performance Measurement - https://www.stevejgordon.co.uk/high-performance-logging-in-net-core
@@ -71,7 +69,7 @@ _logger.LogInformationExtension($"Get Product By Id: {id}");
    "Message":"Get Product By Id: 1",
    "ActionName":"Demo.Api.Controllers.ProductController.GetById (Demo.Api)",
    "RequestPath":"/api/v1.0/products/1",
-   "ApplicationName":"Demo.Api",
+   "ApplicationName":"demo-api",
    "ApplicationVersion":"1.0",
    "Environment":"Development",
    "LoggerName":"Demo.Util",
@@ -121,7 +119,7 @@ _logger.LogInformationExtension($"Get Product By Id: {id}");
       "   at Demo.Api.Middleware.ApiExceptionMiddleware.Invoke(HttpContext context) in C:\\Vishal\\Projects\\Demo\\src\\Demo.Api\\Middleware\\ApiExceptionMiddleware.cs:line 25"
    ],
    "RequestPath":"/api/v1.0/products/1",
-   "ApplicationName":"Demo.Api",
+   "ApplicationName":"demo-api",
    "ApplicationVersion":"1.0",
    "Environment":"Development",
    "LoggerName":"Demo.Util",
@@ -149,7 +147,7 @@ _logger.LogInformationExtension($"Get Product By Id: {id}");
    "Duration":143,
    "ActionName":"Demo.Api.Controllers.ProductController.GetById (Demo.Api)",
    "RequestPath":"/api/v1.0/products/1",
-   "ApplicationName":"Demo.Api",
+   "ApplicationName":"demo-api",
    "ApplicationVersion":"1.0",
    "Environment":"Development",
    "LoggerName":"Demo.Util",
@@ -178,7 +176,7 @@ _logger.LogInformationExtension($"Get Product By Id: {id}");
    "Description":"Token is NULL",
    "ActionName":"Demo.Api.Controllers.ProductController.GetById (Demo.Api)",
    "RequestPath":"/api/v1.0/products/1",
-   "ApplicationName":"Demo.Api",
+   "ApplicationName":"demo-api",
    "ApplicationVersion":"1.0",
    "Environment":"Development",
    "LoggerName":"Demo.Util",
